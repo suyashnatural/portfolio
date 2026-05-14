@@ -31,7 +31,33 @@ export default function ResumePage() {
           send one.
         </p>
       </div>
+
+      <div className="mt-6 overflow-hidden rounded-[var(--radius-lg)] border border-border bg-card shadow-sm shadow-[hsl(var(--shadow)/0.14)]">
+        <div className="flex items-center justify-between gap-3 border-b border-border px-4 py-3">
+          <div className="text-sm font-medium tracking-tight">Preview</div>
+          <a
+            className="text-sm text-muted-fg hover:text-fg"
+            href={siteConfig.links.resumePdf}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Open in new tab
+          </a>
+        </div>
+        <object
+          data={siteConfig.links.resumePdf}
+          type="application/pdf"
+          className="h-[70vh] w-full bg-muted"
+        >
+          <div className="p-6 text-sm text-muted-fg">
+            PDF preview isn’t supported in this browser.{" "}
+            <a className="underline" href={siteConfig.links.resumePdf}>
+              Download the resume
+            </a>
+            .
+          </div>
+        </object>
+      </div>
     </Container>
   );
 }
-
