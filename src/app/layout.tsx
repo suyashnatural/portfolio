@@ -3,6 +3,7 @@ import "./globals.css";
 
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { SkipLink } from "@/components/skip-link";
 import { ThemeProvider } from "@/components/theme-provider";
 import { seo, siteConfig } from "@/lib/site";
 
@@ -30,6 +31,16 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const personLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: siteConfig.name,
+    email: `mailto:${siteConfig.email}`,
+    url: siteConfig.url || undefined,
+    sameAs: [siteConfig.links.linkedin, siteConfig.links.github],
+    jobTitle: "Lead SDET / Test Platform Engineer",
+  };
+
   return (
     <html
       lang="en"
@@ -40,10 +51,17 @@ export default function RootLayout({
         <ThemeProvider>
           <div className="min-h-full flex flex-col">
             <SiteHeader />
-            <main className="flex-1">{children}</main>
+            <SkipLink />
+            <main id="content" className="flex-1">
+              {children}
+            </main>
             <SiteFooter />
           </div>
         </ThemeProvider>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personLd) }}
+        />
       </body>
     </html>
   );
