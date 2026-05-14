@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import { Container } from "@/components/container";
 import { Button } from "@/components/ui/button";
+import { homeContent } from "@/content/home";
 import { siteConfig } from "@/lib/site";
 
 function SectionTitle({
@@ -46,7 +47,7 @@ export default function Home() {
             <div className="md:col-span-8">
               <div className="inline-flex items-center gap-2 rounded-full border border-border bg-muted/60 px-3 py-1 text-xs text-muted-fg">
                 <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-                Open to Lead SDET / Test Platform roles
+                {homeContent.badge}
               </div>
               <h1 className="mt-5 text-4xl font-semibold tracking-tight sm:text-5xl">
                 {siteConfig.roleHeadline}
@@ -75,23 +76,20 @@ export default function Home() {
             <div className="md:col-span-4 md:justify-self-end">
               <div className="rounded-[var(--radius-lg)] border border-border bg-card p-5 shadow-sm shadow-[hsl(var(--shadow)/0.18)]">
                 <div className="text-sm font-medium tracking-tight">
-                  Trusted in high-stakes domains
+                  {homeContent.trustCard.title}
                 </div>
                 <p className="mt-2 text-sm text-muted-fg">
-                  Healthcare, genomics, energy — platform quality, reliability,
-                  and release velocity.
+                  {homeContent.trustCard.body}
                 </p>
                 <div className="mt-4 flex flex-wrap gap-2">
-                  {["Cypress", "Playwright", "LLM QA", "RAG/Evals", "CI/CD"].map(
-                    (t) => (
-                      <span
-                        key={t}
-                        className="rounded-full border border-border bg-muted/60 px-2.5 py-1 text-xs text-muted-fg"
-                      >
-                        {t}
-                      </span>
-                    ),
-                  )}
+                  {homeContent.trustCard.tags.map((t) => (
+                    <span
+                      key={t}
+                      className="rounded-full border border-border bg-muted/60 px-2.5 py-1 text-xs text-muted-fg"
+                    >
+                      {t}
+                    </span>
+                  ))}
                 </div>
               </div>
             </div>
@@ -102,10 +100,9 @@ export default function Home() {
       <section className="pt-10 sm:pt-14">
         <Container>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            <ProofChip label="Years in test platform engineering" value="13+ years" />
-            <ProofChip label="Manual QA reduction (UHG)" value="~80% → 20%" />
-            <ProofChip label="Release acceleration (UHG)" value="~4× faster" />
-            <ProofChip label="Domains" value="Healthcare • Genomics • Energy" />
+            {homeContent.proof.map((p) => (
+              <ProofChip key={p.label} label={p.label} value={p.value} />
+            ))}
           </div>
         </Container>
       </section>
@@ -113,9 +110,9 @@ export default function Home() {
       <section id="case-studies" className="pt-16 sm:pt-24 scroll-mt-24">
         <Container className="space-y-8">
           <SectionTitle
-            eyebrow="Case studies"
-            title="Automation platforms built like products"
-            description="Deep dives that focus on constraints, architecture, adoption, and measurable outcomes—without leaking proprietary details."
+            eyebrow={homeContent.sections.caseStudies.eyebrow}
+            title={homeContent.sections.caseStudies.title}
+            description={homeContent.sections.caseStudies.description}
           />
           <div className="grid gap-4 md:grid-cols-12">
             <div className="md:col-span-8">
@@ -171,9 +168,9 @@ export default function Home() {
       <section id="experience" className="pt-16 sm:pt-24 scroll-mt-24">
         <Container className="space-y-8">
           <SectionTitle
-            eyebrow="Experience"
-            title="Leadership with measurable outcomes"
-            description="I lead automation strategy, build platforms, and drive adoption across teams—optimized for fast delivery without compromising quality."
+            eyebrow={homeContent.sections.experience.eyebrow}
+            title={homeContent.sections.experience.title}
+            description={homeContent.sections.experience.description}
           />
           <div className="grid gap-4">
             {[
@@ -224,9 +221,9 @@ export default function Home() {
       <section id="projects" className="pt-16 sm:pt-24 scroll-mt-24">
         <Container className="space-y-8">
           <SectionTitle
-            eyebrow="Projects"
-            title="Selected public work"
-            description="A small set of repos that reinforce the story. More will be curated as case studies land."
+            eyebrow={homeContent.sections.projects.eyebrow}
+            title={homeContent.sections.projects.title}
+            description={homeContent.sections.projects.description}
           />
           <div className="grid gap-4 md:grid-cols-12">
             <div className="md:col-span-6 rounded-[var(--radius-lg)] border border-border bg-card p-6 shadow-sm shadow-[hsl(var(--shadow)/0.12)]">
@@ -298,4 +295,3 @@ export default function Home() {
     </div>
   );
 }
-
