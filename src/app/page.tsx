@@ -3,6 +3,8 @@ import Link from "next/link";
 import { Container } from "@/components/container";
 import { Button } from "@/components/ui/button";
 import { homeContent } from "@/content/home";
+import { experience } from "@/content/experience";
+import { projects } from "@/content/projects";
 import { siteConfig } from "@/lib/site";
 
 function SectionTitle({
@@ -173,27 +175,7 @@ export default function Home() {
             description={homeContent.sections.experience.description}
           />
           <div className="grid gap-4">
-            {[
-              {
-                company: "UnitedHealth Group (Optum)",
-                role: "Lead SDET",
-                timeframe: "2022 — Present",
-                bullets: [
-                  "Architected an AI-driven test automation platform adopted org-wide; reduced manual QA effort ~80%.",
-                  "Built framework-aware codegen + Rally pipelines; cut test creation time from hours to minutes.",
-                  "Shipped LLM triage workflows analyzing artifacts (screenshots/videos) with confidence-scored suggestions.",
-                ],
-              },
-              {
-                company: "Guardant Health",
-                role: "Staff Software Engineer in Test",
-                timeframe: "2021 — 2022",
-                bullets: [
-                  "Led end-to-end automation for complex genomics workflows with multiple integration points.",
-                  "Established testing strategy by mapping system boundaries and critical-path risk.",
-                ],
-              },
-            ].map((job) => (
+            {experience.slice(0, 2).map((job) => (
               <div
                 key={job.company}
                 className="rounded-[var(--radius-lg)] border border-border bg-card p-6 shadow-sm shadow-[hsl(var(--shadow)/0.12)]"
@@ -206,7 +188,7 @@ export default function Home() {
                 </div>
                 <div className="mt-1 text-sm text-muted-fg">{job.role}</div>
                 <ul className="mt-4 space-y-2 text-sm text-muted-fg">
-                  {job.bullets.map((b) => (
+                  {job.highlights.slice(0, 3).map((b) => (
                     <li key={b} className="list-disc ml-4">
                       {b}
                     </li>
@@ -226,45 +208,32 @@ export default function Home() {
             description={homeContent.sections.projects.description}
           />
           <div className="grid gap-4 md:grid-cols-12">
-            <div className="md:col-span-6 rounded-[var(--radius-lg)] border border-border bg-card p-6 shadow-sm shadow-[hsl(var(--shadow)/0.12)]">
-              <div className="text-sm font-medium tracking-tight">
-                ApplyFlow (LinkedIn automation)
+            {projects.map((p) => (
+              <div
+                key={p.href}
+                className="md:col-span-6 rounded-[var(--radius-lg)] border border-border bg-card p-6 shadow-sm shadow-[hsl(var(--shadow)/0.12)]"
+              >
+                <div className="text-sm font-medium tracking-tight">{p.name}</div>
+                <p className="mt-1 text-sm text-muted-fg">{p.description}</p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {p.stack.map((t) => (
+                    <span
+                      key={t}
+                      className="rounded-full border border-border bg-muted/60 px-2.5 py-1 text-xs text-muted-fg"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+                <div className="mt-5 flex flex-wrap items-center gap-3">
+                  <Button asChild variant="secondary" size="sm">
+                    <a href={p.href} target="_blank" rel="noreferrer">
+                      GitHub
+                    </a>
+                  </Button>
+                </div>
               </div>
-              <p className="mt-1 text-sm text-muted-fg">
-                Multi-service system with web UI + worker automation. Included as
-                a systems example.
-              </p>
-              <div className="mt-5 flex flex-wrap items-center gap-3">
-                <Button asChild variant="secondary" size="sm">
-                  <a
-                    href="https://github.com/suyashnatural/applyflow-linkedin"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    GitHub
-                  </a>
-                </Button>
-              </div>
-            </div>
-            <div className="md:col-span-6 rounded-[var(--radius-lg)] border border-border bg-card p-6 shadow-sm shadow-[hsl(var(--shadow)/0.12)]">
-              <div className="text-sm font-medium tracking-tight">
-                Cypress automation practice
-              </div>
-              <p className="mt-1 text-sm text-muted-fg">
-                Page-object patterns and reporting for a UI automation suite.
-              </p>
-              <div className="mt-5 flex flex-wrap items-center gap-3">
-                <Button asChild variant="secondary" size="sm">
-                  <a
-                    href="https://github.com/suyashnatural/automationpracticecypress"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    GitHub
-                  </a>
-                </Button>
-              </div>
-            </div>
+            ))}
           </div>
         </Container>
       </section>
