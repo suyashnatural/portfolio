@@ -2,6 +2,21 @@ import { Container } from "@/components/container";
 import { Button } from "@/components/ui/button";
 import { uhgAiQaPlatform } from "@/content/case-studies/uhg-ai-qa-platform";
 
+function DiagramNode({
+  title,
+  body,
+}: {
+  title: string;
+  body: string;
+}) {
+  return (
+    <div className="rounded-[var(--radius-md)] border border-border bg-card p-4 shadow-sm shadow-[hsl(var(--shadow)/0.08)]">
+      <div className="text-sm font-medium tracking-tight">{title}</div>
+      <p className="mt-1 text-sm text-muted-fg">{body}</p>
+    </div>
+  );
+}
+
 export default function UhgAiQaPlatformCaseStudy() {
   return (
     <Container className="py-14 sm:py-20">
@@ -57,6 +72,42 @@ export default function UhgAiQaPlatformCaseStudy() {
                   <p className="mt-1 text-sm text-muted-fg">{s.body}</p>
                 </div>
               ))}
+            </div>
+          </div>
+
+          <div className="rounded-[var(--radius-lg)] border border-border bg-card p-6 shadow-sm shadow-[hsl(var(--shadow)/0.14)]">
+            <div className="text-sm font-medium tracking-tight">
+              Architecture (sanitized)
+            </div>
+            <p className="mt-2 text-sm text-muted-fg">
+              A simplified view of the data flow. This intentionally omits
+              product-specific services and naming.
+            </p>
+            <div className="mt-5 grid gap-3 md:grid-cols-2">
+              <DiagramNode
+                title="1) Inputs"
+                body="User stories, existing test assets (selectors/page objects), and CI artifacts (logs, screenshots, videos)."
+              />
+              <DiagramNode
+                title="2) Orchestration"
+                body="CLI workflows + pipelines route inputs to either code generation or triage, with review gates."
+              />
+              <DiagramNode
+                title="3) Generation"
+                body="Framework-aware codegen produces Cypress tests aligned to conventions (commands, POMs), never silently merged."
+              />
+              <DiagramNode
+                title="4) Triage"
+                body="Artifact-first analysis produces confidence-scored hypotheses and suggested fixes, plus links to evidence."
+              />
+              <DiagramNode
+                title="5) Governance"
+                body="Evals/guardrails + audit logs keep outputs reviewable; humans approve changes before landing."
+              />
+              <DiagramNode
+                title="6) Visibility"
+                body="Dashboards + metrics track flake rate, MTTR, environment uptime, and adoption over time."
+              />
             </div>
           </div>
 
