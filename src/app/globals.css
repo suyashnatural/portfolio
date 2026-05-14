@@ -1,26 +1,86 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: light;
+
+  /* Brand */
+  --accent: 37 99% 55%;
+
+  /* Neutrals (HSL for easy alpha usage) */
+  --bg: 0 0% 100%;
+  --fg: 222 47% 11%;
+  --muted: 220 14% 96%;
+  --muted-fg: 220 9% 46%;
+  --card: 0 0% 100%;
+  --border: 220 13% 91%;
+
+  /* Effects */
+  --ring: 222 84% 5%;
+  --shadow: 220 40% 2%;
+
+  /* Radii */
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Typography (local/system stack to keep builds offline-safe) */
+  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Apple Color Emoji",
+    "Segoe UI Emoji";
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+
+  /* Tokens: colors */
+  --color-bg: hsl(var(--bg));
+  --color-fg: hsl(var(--fg));
+  --color-muted: hsl(var(--muted));
+  --color-muted-fg: hsl(var(--muted-fg));
+  --color-card: hsl(var(--card));
+  --color-border: hsl(var(--border));
+  --color-accent: hsl(var(--accent));
+
+  /* Tokens: radii */
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html.dark {
+  color-scheme: dark;
+  --bg: 222 47% 6%;
+  --fg: 210 40% 98%;
+  --muted: 220 18% 13%;
+  --muted-fg: 215 20% 65%;
+  --card: 222 47% 7%;
+  --border: 220 18% 16%;
+  --ring: 210 40% 98%;
+  --shadow: 222 47% 2%;
+}
+
+* {
+  min-width: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  text-rendering: geometricPrecision;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: hsl(var(--bg));
+  color: hsl(var(--fg));
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: hsl(var(--accent) / 0.25);
+}
+
+:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 4px hsl(var(--accent) / 0.2),
+    0 0 0 1px hsl(var(--accent) / 0.6);
 }
