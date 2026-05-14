@@ -1,6 +1,13 @@
+import type { Metadata } from "next";
+
 import { Container } from "@/components/container";
 import { Button } from "@/components/ui/button";
 import { uhgAiQaPlatform } from "@/content/case-studies/uhg-ai-qa-platform";
+
+export const metadata: Metadata = {
+  title: "UHG AI QA Platform (Sanitized)",
+  description: uhgAiQaPlatform.summary,
+};
 
 function DiagramNode({
   title,

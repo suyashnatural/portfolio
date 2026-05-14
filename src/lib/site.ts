@@ -5,6 +5,7 @@ export const siteConfig = {
     "I build test automation platforms that scale across teams—and now I’m applying LLM/agent systems to make QA faster, smarter, and more reliable.",
   location: "Sunnyvale, CA",
   email: "suyashn02@gmail.com",
+  defaultUrl: "https://suyashnande.com",
   url: process.env.NEXT_PUBLIC_SITE_URL,
   links: {
     github: "https://github.com/suyashnatural",

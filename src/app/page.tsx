@@ -65,6 +65,9 @@ export default function Home() {
                   <a href={`mailto:${siteConfig.email}`}>Email</a>
                 </Button>
                 <Button asChild variant="ghost">
+                  <Link href="/experience">Experience</Link>
+                </Button>
+                <Button asChild variant="ghost">
                   <a
                     href={siteConfig.links.linkedin}
                     target="_blank"
