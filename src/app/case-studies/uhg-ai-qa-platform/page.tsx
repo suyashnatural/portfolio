@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { Container } from "@/components/container";
+import { UhgPlatformDiagram } from "@/components/diagrams/uhg-platform-diagram";
 import { Button } from "@/components/ui/button";
 import { uhgAiQaPlatform } from "@/content/case-studies/uhg-ai-qa-platform";
 
@@ -119,6 +120,9 @@ export default function UhgAiQaPlatformCaseStudy() {
               A simplified view of the data flow. This intentionally omits
               product-specific services and naming.
             </p>
+            <div className="mt-5 overflow-hidden rounded-[var(--radius-lg)] border border-border bg-muted/20 p-4">
+              <UhgPlatformDiagram />
+            </div>
             <div className="mt-5 grid gap-3 md:grid-cols-2">
               <DiagramNode
                 title="1) Inputs"

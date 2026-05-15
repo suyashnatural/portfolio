@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { Container } from "@/components/container";
+import { TriageDiagram } from "@/components/diagrams/triage-diagram";
 import { Button } from "@/components/ui/button";
 import { aiFailureTriage } from "@/content/case-studies/ai-failure-triage";
 
@@ -85,6 +86,19 @@ export default function AiFailureTriageCaseStudy() {
           </div>
 
           <div className="rounded-[var(--radius-lg)] border border-border bg-card p-6 shadow-sm shadow-[hsl(var(--shadow)/0.14)]">
+            <div className="text-sm font-medium tracking-tight">
+              Pipeline diagram (sanitized)
+            </div>
+            <p className="mt-2 text-sm text-muted-fg">
+              The flow is intentionally generic; the goal is to show the shape
+              of the system and where confidence + guardrails live.
+            </p>
+            <div className="mt-5 overflow-hidden rounded-[var(--radius-lg)] border border-border bg-muted/20 p-4">
+              <TriageDiagram />
+            </div>
+          </div>
+
+          <div className="rounded-[var(--radius-lg)] border border-border bg-card p-6 shadow-sm shadow-[hsl(var(--shadow)/0.14)]">
             <div className="text-sm font-medium tracking-tight">Outcomes</div>
             <div className="mt-4 grid gap-3 sm:grid-cols-2">
               {aiFailureTriage.outcomes.map((o) => (
@@ -121,4 +135,3 @@ export default function AiFailureTriageCaseStudy() {
     </Container>
   );
 }
-
