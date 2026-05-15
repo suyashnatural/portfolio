@@ -85,6 +85,10 @@ export default function Home() {
                   </TrackLink>
                 </Button>
               </div>
+              <p className="mt-6 max-w-2xl text-sm text-muted-fg">
+                Based in {siteConfig.location}. Open to roles focused on test
+                platform engineering, developer productivity, and AI‑assisted QA.
+              </p>
             </div>
             <div className="md:col-span-4 md:justify-self-end">
               <div className="rounded-[var(--radius-lg)] border border-border bg-card p-5 shadow-sm shadow-[hsl(var(--shadow)/0.18)]">

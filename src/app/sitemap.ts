@@ -23,7 +23,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: "monthly",
     },
+    { url: absoluteUrl("/experience"), lastModified: now, changeFrequency: "yearly" },
+    { url: absoluteUrl("/projects"), lastModified: now, changeFrequency: "monthly" },
     { url: absoluteUrl("/resume"), lastModified: now, changeFrequency: "yearly" },
+    { url: absoluteUrl("/writing"), lastModified: now, changeFrequency: "monthly" },
   ];
 }
-

@@ -1,6 +1,8 @@
+import type { Metadata } from "next";
+
 import { Container } from "@/components/container";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Writing",
   description:
     "Short notes on test platform engineering, AI-assisted QA, and developer productivity.",
@@ -38,4 +40,3 @@ export default function WritingPage() {
     </Container>
   );
 }
-
