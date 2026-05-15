@@ -9,6 +9,7 @@ import { projects } from "@/content/projects";
 import { skillGroups } from "@/content/skills";
 import { siteConfig } from "@/lib/site";
 import { writingPosts } from "@/content/writing/posts";
+import { impactBullets } from "@/content/impact";
 
 function SectionTitle({
   eyebrow,
@@ -117,6 +118,20 @@ export default function Home() {
 
       <section className="pt-10 sm:pt-14">
         <Container>
+          <div className="rounded-[var(--radius-lg)] border border-border bg-card p-6 shadow-sm shadow-[hsl(var(--shadow)/0.12)]">
+            <div className="text-sm font-medium tracking-tight">Proof</div>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+              <ProofChip label="Org-wide adoption" value="AI QA platform" />
+              <ProofChip label="Manual QA effort" value="~80% → 20%" />
+              <ProofChip label="Release velocity" value="~4× faster" />
+              <ProofChip label="Failure triage" value="~70% faster" />
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <section className="pt-10 sm:pt-14">
+        <Container>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {homeContent.proof.map((p) => (
               <ProofChip key={p.label} label={p.label} value={p.value} />
@@ -179,6 +194,25 @@ export default function Home() {
                 </ul>
               </div>
             </div>
+          </div>
+        </Container>
+      </section>
+
+      <section className="pt-16 sm:pt-24">
+        <Container className="space-y-8">
+          <SectionTitle
+            eyebrow="Impact"
+            title="Outcomes-first engineering"
+            description="A fast scan of measurable results across platform quality, release velocity, and reliability."
+          />
+          <div className="rounded-[var(--radius-lg)] border border-border bg-card p-6 shadow-sm shadow-[hsl(var(--shadow)/0.12)]">
+            <ul className="grid gap-3 text-sm text-muted-fg md:grid-cols-2">
+              {impactBullets.map((b) => (
+                <li key={b} className="list-disc ml-4">
+                  {b}
+                </li>
+              ))}
+            </ul>
           </div>
         </Container>
       </section>

@@ -5,6 +5,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { SkipLink } from "@/components/skip-link";
 import { ThemeProvider } from "@/components/theme-provider";
+import { MobileStickyCta } from "@/components/mobile-sticky-cta";
 import { resolveSiteUrl, seo, siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -61,6 +62,7 @@ export default function RootLayout({
                 {children}
               </div>
             </main>
+            <MobileStickyCta />
             <SiteFooter />
           </div>
         </ThemeProvider>
