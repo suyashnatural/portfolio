@@ -40,6 +40,18 @@ export default function ProjectsPage() {
                 </span>
               ))}
             </div>
+            <div className="mt-5 rounded-[var(--radius-md)] border border-border bg-muted/40 p-4">
+              <div className="text-sm font-medium tracking-tight">
+                What it proves
+              </div>
+              <ul className="mt-3 space-y-2 text-sm text-muted-fg">
+                {p.proves.map((x) => (
+                  <li key={x} className="list-disc ml-4">
+                    {x}
+                  </li>
+                ))}
+              </ul>
+            </div>
             {p.note ? (
               <div className="mt-4 rounded-[var(--radius-md)] border border-border bg-muted/50 p-3 text-xs text-muted-fg">
                 {p.note}
