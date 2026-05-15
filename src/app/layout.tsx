@@ -5,7 +5,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { SkipLink } from "@/components/skip-link";
 import { ThemeProvider } from "@/components/theme-provider";
-import { seo, siteConfig } from "@/lib/site";
+import { resolveSiteUrl, seo, siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: {
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     template: `%s — ${siteConfig.name}`,
   },
   description: seo.description,
-  metadataBase: new URL(siteConfig.url || siteConfig.defaultUrl),
+  metadataBase: new URL(resolveSiteUrl()),
   openGraph: {
     title: seo.title,
     description: seo.description,

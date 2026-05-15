@@ -19,3 +19,12 @@ export const seo = {
   description:
     "Lead SDET and Test Platform Engineer specializing in AI-powered QA automation, Cypress/Playwright frameworks, and engineering productivity. Built org-wide platforms with measurable release and quality impact.",
 } as const;
+
+export function resolveSiteUrl() {
+  const candidate = siteConfig.url || siteConfig.defaultUrl;
+  try {
+    return new URL(candidate).toString().replace(/\/+$/, "");
+  } catch {
+    return siteConfig.defaultUrl;
+  }
+}

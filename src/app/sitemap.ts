@@ -1,10 +1,9 @@
 import type { MetadataRoute } from "next";
 
-import { siteConfig } from "@/lib/site";
+import { resolveSiteUrl } from "@/lib/site";
 
 function absoluteUrl(path: string) {
-  const base =
-    siteConfig.url?.replace(/\/+$/, "") || "https://suyashnande.com";
+  const base = resolveSiteUrl();
   return `${base}${path.startsWith("/") ? path : `/${path}`}`;
 }
 
