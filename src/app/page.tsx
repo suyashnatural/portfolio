@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { Container } from "@/components/container";
+import { TrackLink } from "@/components/track-link";
 import { Button } from "@/components/ui/button";
 import { homeContent } from "@/content/home";
 import { experience } from "@/content/experience";
@@ -63,19 +64,25 @@ export default function Home() {
                   <Link href="#case-studies">View case studies</Link>
                 </Button>
                 <Button asChild variant="secondary">
-                  <a href={`mailto:${siteConfig.email}`}>Email</a>
+                  <TrackLink
+                    href={`mailto:${siteConfig.email}`}
+                    event={{ name: "cta_email" }}
+                  >
+                    Email
+                  </TrackLink>
                 </Button>
                 <Button asChild variant="ghost">
                   <Link href="/experience">Experience</Link>
                 </Button>
                 <Button asChild variant="ghost">
-                  <a
+                  <TrackLink
                     href={siteConfig.links.linkedin}
                     target="_blank"
                     rel="noreferrer"
+                    event={{ name: "cta_linkedin" }}
                   >
                     LinkedIn
-                  </a>
+                  </TrackLink>
                 </Button>
               </div>
             </div>

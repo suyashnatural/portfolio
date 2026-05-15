@@ -1,8 +1,7 @@
-import Link from "next/link";
-
 import { Container } from "@/components/container";
 import { Button } from "@/components/ui/button";
 import { caseStudies } from "@/content/case-studies";
+import { TrackLink } from "@/components/track-link";
 
 export default function CaseStudiesPage() {
   return (
@@ -37,7 +36,12 @@ export default function CaseStudiesPage() {
               </div>
               <div className="mt-6">
                 <Button asChild>
-                  <Link href={`/case-studies/${cs.slug}`}>Read</Link>
+                  <TrackLink
+                    href={`/case-studies/${cs.slug}`}
+                    event={{ name: "cta_case_study_open", slug: cs.slug }}
+                  >
+                    Read
+                  </TrackLink>
                 </Button>
               </div>
             </div>
