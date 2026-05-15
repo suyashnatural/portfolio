@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { homeContent } from "@/content/home";
 import { experience } from "@/content/experience";
 import { projects } from "@/content/projects";
+import { skillGroups } from "@/content/skills";
 import { siteConfig } from "@/lib/site";
 
 function SectionTitle({
@@ -235,6 +236,34 @@ export default function Home() {
                     </a>
                   </Button>
                 </div>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section id="skills" className="pt-16 sm:pt-24 scroll-mt-24">
+        <Container className="space-y-8">
+          <SectionTitle
+            eyebrow="Skills"
+            title="Systems I build and scale"
+            description="A curated view of what I ship end-to-end—platform engineering, AI-assisted workflows, and delivery rigor."
+          />
+          <div className="grid gap-4 md:grid-cols-12">
+            {skillGroups.map((g) => (
+              <div
+                key={g.title}
+                className="md:col-span-4 rounded-[var(--radius-lg)] border border-border bg-card p-6 shadow-sm shadow-[hsl(var(--shadow)/0.12)]"
+              >
+                <div className="text-sm font-medium tracking-tight">{g.title}</div>
+                <p className="mt-1 text-sm text-muted-fg">{g.description}</p>
+                <ul className="mt-4 space-y-2 text-sm text-muted-fg">
+                  {g.items.map((i) => (
+                    <li key={i} className="list-disc ml-4">
+                      {i}
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
