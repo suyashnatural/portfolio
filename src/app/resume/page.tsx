@@ -32,6 +32,36 @@ export default function ResumePage() {
         </p>
       </div>
 
+      <div className="mt-6 grid gap-4 md:grid-cols-12">
+        <div className="md:col-span-8 rounded-[var(--radius-lg)] border border-border bg-muted/50 p-6">
+          <div className="text-sm font-medium tracking-tight">Highlights</div>
+          <ul className="mt-4 space-y-2 text-sm text-muted-fg">
+            <li className="list-disc ml-4">
+              Built an AI-driven test automation platform with org-wide adoption;
+              reduced manual QA effort (~80% → 20%) and accelerated releases (~4×).
+            </li>
+            <li className="list-disc ml-4">
+              Shipped LLM-based failure triage using execution artifacts (screenshots/videos)
+              with confidence scoring; reduced investigation time ~70%.
+            </li>
+            <li className="list-disc ml-4">
+              Deep expertise in Cypress, Playwright, Selenium, REST APIs, CI/CD, and cloud
+              (Azure/AWS) in healthcare and genomics domains.
+            </li>
+          </ul>
+        </div>
+        <div className="md:col-span-4 rounded-[var(--radius-lg)] border border-border bg-card p-6 shadow-sm shadow-[hsl(var(--shadow)/0.12)]">
+          <div className="text-sm font-medium tracking-tight">Certifications</div>
+          <ul className="mt-4 space-y-2 text-sm text-muted-fg">
+            <li className="list-disc ml-4">PSM-I (Scrum.org)</li>
+            <li className="list-disc ml-4">ISTQB Foundation</li>
+          </ul>
+          <div className="mt-5 text-xs text-muted-fg">
+            Full details in the PDF.
+          </div>
+        </div>
+      </div>
+
       <div className="mt-6 overflow-hidden rounded-[var(--radius-lg)] border border-border bg-card shadow-sm shadow-[hsl(var(--shadow)/0.14)]">
         <div className="flex items-center justify-between gap-3 border-b border-border px-4 py-3">
           <div className="text-sm font-medium tracking-tight">Preview</div>
