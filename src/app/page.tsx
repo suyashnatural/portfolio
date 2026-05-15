@@ -260,6 +260,11 @@ export default function Home() {
             title="Systems I build and scale"
             description="A curated view of what I ship end-to-end—platform engineering, AI-assisted workflows, and delivery rigor."
           />
+          <div className="flex">
+            <Button asChild variant="secondary" size="sm">
+              <Link href="/skills">View full skills</Link>
+            </Button>
+          </div>
           <div className="grid gap-4 md:grid-cols-12">
             {skillGroups.map((g) => (
               <div

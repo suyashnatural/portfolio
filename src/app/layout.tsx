@@ -53,7 +53,13 @@ export default function RootLayout({
             <SiteHeader />
             <SkipLink />
             <main id="content" className="flex-1">
-              {children}
+              <div className="relative">
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute inset-x-0 -top-24 h-24 bg-gradient-to-b from-muted/40 to-transparent"
+                />
+                {children}
+              </div>
             </main>
             <SiteFooter />
           </div>
