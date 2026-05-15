@@ -10,10 +10,10 @@ import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/lib/site";
 
 const nav = [
-  { href: "#case-studies", label: "Case Studies" },
+  { href: "/#case-studies", label: "Case Studies" },
   { href: "/experience", label: "Experience" },
-  { href: "#projects", label: "Projects" },
-  { href: "#contact", label: "Contact" },
+  { href: "/projects", label: "Projects" },
+  { href: "/#contact", label: "Contact" },
 ] as const;
 
 export function SiteHeader() {
