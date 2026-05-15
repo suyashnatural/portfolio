@@ -37,6 +37,10 @@ export default function UhgAiQaPlatformCaseStudy() {
         <p className="max-w-2xl text-sm text-muted-fg sm:text-base">
           {uhgAiQaPlatform.summary}
         </p>
+        <div className="max-w-2xl text-sm text-muted-fg">
+          <span className="font-medium text-fg">My role:</span>{" "}
+          {uhgAiQaPlatform.myRole}
+        </div>
       </div>
 
       <div className="mt-10 grid gap-4 md:grid-cols-12">
@@ -50,6 +54,31 @@ export default function UhgAiQaPlatformCaseStudy() {
                 </li>
               ))}
             </ul>
+          </div>
+
+          <div className="rounded-[var(--radius-lg)] border border-border bg-card p-6 shadow-sm shadow-[hsl(var(--shadow)/0.14)]">
+            <div className="text-sm font-medium tracking-tight">
+              Constraints & guardrails
+            </div>
+            <ul className="mt-4 space-y-2 text-sm text-muted-fg">
+              {uhgAiQaPlatform.constraints.map((t) => (
+                <li key={t} className="list-disc ml-4">
+                  {t}
+                </li>
+              ))}
+            </ul>
+            <div className="mt-5 rounded-[var(--radius-md)] border border-border bg-muted/40 p-4">
+              <div className="text-sm font-medium tracking-tight">
+                What kept the AI honest
+              </div>
+              <ul className="mt-3 space-y-2 text-sm text-muted-fg">
+                {uhgAiQaPlatform.guardrails.map((t) => (
+                  <li key={t} className="list-disc ml-4">
+                    {t}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
           <div className="rounded-[var(--radius-lg)] border border-border bg-card p-6 shadow-sm shadow-[hsl(var(--shadow)/0.14)]">

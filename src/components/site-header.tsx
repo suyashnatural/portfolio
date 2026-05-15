@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
 import { Container } from "@/components/container";
+import { TrackLink } from "@/components/track-link";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/lib/site";
@@ -13,6 +14,7 @@ const nav = [
   { href: "/#case-studies", label: "Case Studies" },
   { href: "/experience", label: "Experience" },
   { href: "/projects", label: "Projects" },
+  { href: "/writing", label: "Writing" },
   { href: "/#contact", label: "Contact" },
 ] as const;
 
@@ -44,7 +46,12 @@ export function SiteHeader() {
         </div>
         <div className="flex items-center gap-2">
           <Button asChild variant="secondary" size="sm" className="hidden sm:flex">
-            <a href={siteConfig.links.resumePdf}>Resume</a>
+            <TrackLink
+              href={siteConfig.links.resumePdf}
+              event={{ name: "cta_resume_download" }}
+            >
+              Resume
+            </TrackLink>
           </Button>
           <Button
             aria-label={open ? "Close menu" : "Open menu"}
