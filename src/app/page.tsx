@@ -222,6 +222,11 @@ export default function Home() {
             title={homeContent.sections.projects.title}
             description={homeContent.sections.projects.description}
           />
+          <div className="flex">
+            <Button asChild variant="secondary" size="sm">
+              <Link href="/projects">View all projects</Link>
+            </Button>
+          </div>
           <div className="grid gap-4 md:grid-cols-12">
             {projects.map((p) => (
               <div
