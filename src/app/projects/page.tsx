@@ -1,8 +1,10 @@
+import type { Metadata } from "next";
+
 import { Container } from "@/components/container";
 import { Button } from "@/components/ui/button";
 import { projects } from "@/content/projects";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Projects",
   description:
     "Selected public repositories that support the portfolio narrative.",
@@ -56,4 +58,3 @@ export default function ProjectsPage() {
     </Container>
   );
 }
-

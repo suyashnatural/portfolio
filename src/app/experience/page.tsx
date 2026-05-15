@@ -1,7 +1,9 @@
+import type { Metadata } from "next";
+
 import { Container } from "@/components/container";
 import { experience } from "@/content/experience";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Experience",
   description:
     "Outcomes-first timeline across healthcare, genomics, and energy — platform engineering, automation frameworks, and AI-assisted QA.",
@@ -52,4 +54,3 @@ export default function ExperiencePage() {
     </Container>
   );
 }
-

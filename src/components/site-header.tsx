@@ -58,6 +58,8 @@ export function SiteHeader() {
             className="w-10 px-0 md:hidden"
             variant="ghost"
             onClick={() => setOpen((v) => !v)}
+            aria-expanded={open}
+            aria-controls="mobile-nav"
           >
             {open ? <X className="size-4" /> : <Menu className="size-4" />}
           </Button>
@@ -67,7 +69,7 @@ export function SiteHeader() {
       {open ? (
         <div className="border-t border-border/70 bg-bg/80 backdrop-blur supports-[backdrop-filter]:bg-bg/70 md:hidden">
           <Container className="py-3">
-            <nav className="grid gap-1">
+            <nav id="mobile-nav" className="grid gap-1">
               {nav.map((item) => (
                 <Link
                   key={item.href}
