@@ -1,7 +1,7 @@
 export const uhgAiQaPlatform = {
   title: "AI‑driven QA Platform at UHG (Sanitized)",
   summary:
-    "I architected an AI-assisted test automation platform that scaled across teams: LLM-powered test generation, artifact-driven failure triage, and automated delivery artifacts—built with guardrails for reliability and adoption.",
+    "I architected an AI-assisted test automation platform that scaled across teams: framework-aware test generation, artifact-driven triage, and delivery automation—built with guardrails for reliability and adoption.",
   myRole:
     "Technical lead for the automation platform: architecture, core implementation, adoption strategy, and operationalization across teams.",
   context: [

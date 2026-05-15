@@ -45,4 +45,3 @@ export const aiFailureTriage = {
     "This write-up is intentionally sanitized and focuses on engineering design rather than proprietary systems.",
   ],
 } as const;
-

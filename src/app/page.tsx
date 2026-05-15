@@ -8,6 +8,7 @@ import { experience } from "@/content/experience";
 import { projects } from "@/content/projects";
 import { skillGroups } from "@/content/skills";
 import { siteConfig } from "@/lib/site";
+import { writingPosts } from "@/content/writing/posts";
 
 function SectionTitle({
   eyebrow,
@@ -287,6 +288,54 @@ export default function Home() {
                 </ul>
               </div>
             ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="pt-16 sm:pt-24">
+        <Container className="space-y-8">
+          <SectionTitle
+            eyebrow="Writing"
+            title="Notes on AI‑in‑QA and platform engineering"
+            description="Short posts that show how I think: evidence-first workflows, guardrails, and practical systems design."
+          />
+          <div className="grid gap-4 md:grid-cols-12">
+            {writingPosts.slice(0, 2).map((p) => (
+              <article
+                key={p.slug}
+                className="md:col-span-6 rounded-[var(--radius-lg)] border border-border bg-card p-6 shadow-sm shadow-[hsl(var(--shadow)/0.12)]"
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <div className="text-sm font-medium tracking-tight">
+                      {p.title}
+                    </div>
+                    <p className="mt-1 text-sm text-muted-fg">{p.description}</p>
+                  </div>
+                  <div className="text-xs text-muted-fg">{p.date}</div>
+                </div>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {p.tags.slice(0, 4).map((t) => (
+                    <span
+                      key={t}
+                      className="rounded-full border border-border bg-muted/60 px-2.5 py-1 text-xs text-muted-fg"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+                <div className="mt-6 flex flex-wrap items-center gap-3">
+                  <Button asChild variant="secondary" size="sm">
+                    <a href={`/writing/${p.slug}`}>Read</a>
+                  </Button>
+                </div>
+              </article>
+            ))}
+          </div>
+          <div className="flex">
+            <Button asChild variant="ghost">
+              <Link href="/writing">View all writing</Link>
+            </Button>
           </div>
         </Container>
       </section>
