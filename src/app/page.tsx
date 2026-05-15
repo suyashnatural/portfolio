@@ -293,6 +293,35 @@ export default function Home() {
 
       <section id="contact" className="pt-16 sm:pt-24 scroll-mt-24">
         <Container>
+          <div className="mb-6 grid gap-4 md:grid-cols-12">
+            <div className="md:col-span-7 rounded-[var(--radius-lg)] border border-border bg-card p-6 shadow-sm shadow-[hsl(var(--shadow)/0.12)]">
+              <div className="text-sm font-medium tracking-tight">
+                What I’m looking for
+              </div>
+              <ul className="mt-4 space-y-2 text-sm text-muted-fg">
+                <li className="list-disc ml-4">
+                  Lead/Staff SDET or Test Platform roles building frameworks and
+                  developer productivity tooling
+                </li>
+                <li className="list-disc ml-4">
+                  Applied AI-in-QA (LLM workflows with evals + guardrails)
+                </li>
+                <li className="list-disc ml-4">
+                  Teams that value reliability, clear engineering standards, and
+                  measurable outcomes
+                </li>
+              </ul>
+            </div>
+            <div className="md:col-span-5 rounded-[var(--radius-lg)] border border-border bg-muted/50 p-6">
+              <div className="text-sm font-medium tracking-tight">How I work</div>
+              <ul className="mt-4 space-y-2 text-sm text-muted-fg">
+                <li className="list-disc ml-4">Evidence-first decisions</li>
+                <li className="list-disc ml-4">Human-in-the-loop by default</li>
+                <li className="list-disc ml-4">Operational visibility (dashboards, metrics)</li>
+                <li className="list-disc ml-4">Ship iteratively, keep it maintainable</li>
+              </ul>
+            </div>
+          </div>
           <div className="rounded-[var(--radius-lg)] border border-border bg-muted/50 p-8 sm:p-10">
             <div className="text-sm font-medium tracking-tight">
               Recruiting for test platform / AI‑in‑QA leadership?
